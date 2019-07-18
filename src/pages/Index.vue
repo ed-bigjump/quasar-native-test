@@ -18,6 +18,16 @@
       <q-btn
       color="secondary"
       style="width:200px;"
+      @click="$router.push('/page1')"
+    >Page 1</q-btn>
+    <q-btn
+      color="secondary"
+      style="width:200px;"
+      @click="$router.push('/page2')"
+    >Page 2</q-btn>
+      <q-btn
+      color="secondary"
+      style="width:200px;"
       @click="$router.push('/error')"
     >Go to error page</q-btn>
       </div>
