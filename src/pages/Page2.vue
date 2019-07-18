@@ -16,6 +16,6 @@
 
 <script>
 export default {
-  name: 'Page 1'
+  name: 'Page2'
 }
 </script>
