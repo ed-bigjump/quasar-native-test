@@ -1,3 +1,6 @@
+import axios from 'axios'
+import axiosRetry from 'axios-retry'
+
 export default {
   logEvent (category, action, label, sessionId = null) {
     global.dataLayer.push({
@@ -11,12 +14,11 @@ export default {
 
   logPage (path, name, sessionId = null) {
     console.log('logPage fired')
-    console.log(global.dataLayer)
-    global.dataLayer.push({
-      'screenPath': path,
-      'screenName': name,
-      'sessionID': sessionId
+
+    axiosRetry(axios, { retries: 10, retryDelay: axiosRetry.exponentialDelay })
+
+    axios.get('https://www.google-analytics.com/collect?v=1&t=pageview&tid=UA-44300919-6&cid=' + sessionId + '&dt=' + name + '&dp=%2F' + path, function (result) {
+      console.log('Logged to Google Analytics')
     })
-    global.dataLayer.push({ 'event': 'appScreenView' })
   }
 }
