@@ -4,7 +4,7 @@ export default {
       'appEventCategory': category,
       'appEventAction': action,
       'appEventLabel': label,
-      'sessionId': sessionId
+      'sessionID': sessionId
     })
     global.dataLayer.push({ 'event': 'appEvent' })
   },
@@ -15,7 +15,7 @@ export default {
     global.dataLayer.push({
       'screenPath': path,
       'screenName': name,
-      'sessionId': sessionId
+      'sessionID': sessionId
     })
     global.dataLayer.push({ 'event': 'appScreenView' })
   }
